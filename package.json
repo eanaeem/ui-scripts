@@ -1,0 +1,52 @@
+{
+  "name": "@sham/ui-scripts",
+  "version": "3.0.6",
+  "description": "Configuration and scripts for Create React App.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eanaeem/create-react-app.git",
+    "directory": "packages/react-scripts"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.10"
+  },
+  "bugs": {
+    "url": "https://github.com/eanaeem/create-react-app/issues"
+  },
+  "files": [
+    "bin",
+    "config",
+    "lib",
+    "scripts",
+    "template",
+    "template-typescript",
+    "utils"
+  ],
+  "bin": {
+    "ui-scripts": "./bin/react-scripts.js"
+  },
+  "types": "./lib/react-app.d.ts",
+  "dependencies": {
+    "react-scripts": "3.0.1",
+    "styled-components": "^4.3.2"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.6",
+  },
+  "optionalDependencies": {
+    "fsevents": "2.0.7"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
