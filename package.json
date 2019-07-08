@@ -29,7 +29,6 @@
   "types": "./lib/react-app.d.ts",
   "dependencies": {
     "formik": "^1.5.7",
-     "apollo-client": "2.5.1",
     "react-scripts": "3.0.1",
     "styled-components": "^4.3.2"
   },
