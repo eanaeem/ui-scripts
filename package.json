@@ -1,10 +1,10 @@
 {
   "name": "@sham/ui-scripts",
-  "version": "3.0.6",
+  "version": "3.0.0",
   "description": "Configuration and scripts for Create React App.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eanaeem/create-react-app.git",
+    "url": "https://github.com/eanaeem/ui-scripts.git",
     "directory": "packages/react-scripts"
   },
   "license": "MIT",
@@ -12,7 +12,7 @@
     "node": ">=8.10"
   },
   "bugs": {
-    "url": "https://github.com/eanaeem/create-react-app/issues"
+    "url": "https://github.com/eanaeem/ui-scripts/issues"
   },
   "files": [
     "bin",
@@ -24,10 +24,11 @@
     "utils"
   ],
   "bin": {
-    "ui-scripts": "./bin/react-scripts.js"
+    "ui-scripts": "./bin/ui-scripts.js"
   },
   "types": "./lib/react-app.d.ts",
   "dependencies": {
+    "formik": "^1.5.7",
     "react-scripts": "3.0.1",
     "styled-components": "^4.3.2"
   },
