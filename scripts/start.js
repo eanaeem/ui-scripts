@@ -12,12 +12,33 @@
 process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
 
-// console.log('-------------remoete link my scrips link-----');
-console.log('2--------------');
+console.log('4------------------');
+
 
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
 // terminate the Node.js process with a non-zero exit code.
+
+// const spawn = require('react-dev-utils/crossSpawn');
+// const args = process.argv.slice(2);
+
+// const scriptIndex = args.findIndex(
+//   x => x === 'build' || x === 'eject' || x === 'start' || x === 'test'
+// );
+// const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
+// const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
+
+// const result = spawn.sync(
+//   'node',
+//   nodeArgs
+//     .concat(require.resolve('react-scripts'+'/scripts/start'))
+//     .concat(args.slice(scriptIndex + 1)),
+//   { stdio: 'inherit' }
+// );
+
+// console.log('5------inside start ui-scripts------------');
+
+
 process.on('unhandledRejection', err => {
   throw err;
 });

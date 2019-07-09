@@ -11,10 +11,50 @@
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
 // terminate the Node.js process with a non-zero exit code.
-process.on('unhandledRejection', err => {
-  throw err;
-});
-console.log('1-------------')
+
+
+// const {spawn, execSync, exec} = require('child_process');
+// const path = require('path');
+
+// const rootDir = path.resolve(__dirname, '../');
+console.log('1-------------', process.execPath);
+// console.log('1-------------', process.argv);
+
+// const reactScriptsPath = path
+//   .resolve(__dirname, '../node_modules/.bin/react-scripts')
+//   .replace(/ /g, '\\ ');
+
+
+  // const child = spawn(reactScriptsPath, ['start'], { stdio: 'inherit' });
+
+  // child.stdout.on('data', (data)=>{
+  //   console.log('data from child:    ', data.toString());
+  // })
+
+
+  // const execFn = (command, extraEnv) =>{
+  //   execSync(command,
+  //     {
+  //     stdio: 'inherit',
+  //     env: Object.assign({}, process.env, extraEnv),
+  //   }
+  //   );
+    
+  // }
+
+ 
+  // execFn(`${reactScriptsPath} start`
+  // , {
+  //   NODE_ENV: 'production',
+  // }
+  // );
+  
+  process.on('unhandledRejection', err => {
+    console.log('unhandledRejection------------');
+    throw err;
+  });
+  
+  console.log('2------------------');
 
 const spawn = require('react-dev-utils/crossSpawn');
 const args = process.argv.slice(2);
@@ -25,6 +65,12 @@ const scriptIndex = args.findIndex(
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
+
+console.log(scriptIndex, args, script, nodeArgs)
+// console.log(require.resolve('react-scripts' + '../scripts/' + script), args.slice(scriptIndex + 1))
+
+console.log('3-------------')
+
 switch (script) {
   case 'build':
   case 'eject':
@@ -33,11 +79,13 @@ switch (script) {
     const result = spawn.sync(
       'node',
       nodeArgs
-        .concat(require.resolve('../scripts/' + script))
+      .concat(require.resolve('react-scripts' + '/scripts/' + script))
         .concat(args.slice(scriptIndex + 1)),
       { stdio: 'inherit' }
     );
+    
     if (result.signal) {
+      console.log('result.sginal-----------', result.signal);
       if (result.signal === 'SIGKILL') {
         console.log(
           'The build failed because the process exited too early. ' +
@@ -51,8 +99,10 @@ switch (script) {
             'be shutting down.'
         );
       }
+
       process.exit(1);
     }
+
     process.exit(result.status);
     break;
   }
